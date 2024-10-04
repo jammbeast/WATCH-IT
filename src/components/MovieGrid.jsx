@@ -62,9 +62,9 @@ const MovieGrid = () => {
         <MoviePoster 
           key={movie.id}
           title={movie.title}
-          genres={movie.genre_ids} // если это id жанров, их нужно преобразовать на уровне API
+          genres={movie.genre_ids} // это id жанров, их нужно преобразовать на уровне серверного API
           releaseDate={movie.release_date}
-          posterUrl={`https://image.tmdb.org/t/p/w200${movie.poster_path}`} // Добавляем путь для постеров TMDb
+          posterUrl={`https://image.tmdb.org/t/p/w200${movie.poster_path}`}
         />
       ))}
     </div>

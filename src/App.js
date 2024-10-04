@@ -3,8 +3,8 @@ import { BrowserRouter, Route, Routes} from 'react-router-dom';
 
 import Home from './pages/home';
 import About from './pages/terms-of-service';
-import MovieGrid from './components/MovieGrid'; // Импортируем компонент сетки постеров
-import './index.css'; // Ваши глобальные стили
+import MovieGrid from './components/MovieGrid';
+import './index.css'; 
 
 
 

@@ -45,7 +45,7 @@ const ContentSection = () => {
           </div>
 
           {/* Четвертый блок: Follow Us On GitHub */}
-          <div className="bg-[#1E1E1E] rounded-[27px] flex flex-col items-center px-6 py-4 mt-6 mb-4 col-start-3 col-span-8"> {/* Убрали сетку и добавили отступ сверху */}
+          <div className="bg-[#1E1E1E] rounded-[27px] flex flex-col items-center px-6 py-4 mt-6 mb-4 col-start-3 col-span-8"> 
             <div className="text-[#dbdcd0] text-3xl font-normal font-['Teko'] text-center">
               FOLLOW US ON GITHUB
             </div>

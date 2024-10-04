@@ -6,10 +6,8 @@ const MoviePoster = ({ title, genres, releaseDate, posterUrl }) => {
     : 'No genre available';
 
   return (
-    <div className="shrink-0 relative flex flex-col rounded-[10px] p-4 w-48"> {/* Увеличили ширину контейнера */}
-      <img className="relative z-10 h-auto w-48 rounded-md" src={posterUrl} alt={title} /> {/* Изменили размер изображения */}
-      
-      {/* Заголовок с обрезкой текста при длинных названиях */}
+    <div className="shrink-0 relative flex flex-col rounded-[10px] p-4 w-48">
+      <img className="relative z-10 h-auto w-48 rounded-md" src={posterUrl} alt={title} />       
       <h2 className="font-['Teko'] text-3xl mt-2 font-normal tracking-wider text-[#dbdcd0] overflow-hidden text-ellipsis whitespace-nowrap">
         {title}
       </h2>
