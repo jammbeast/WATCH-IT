@@ -2,7 +2,7 @@ import React from 'react';
 import Header from '../components/header';
 import Hero from '../components/hero';
 import ContentSection from '../components/content-section';
-import MovieGrid from '../components/MovieGrid';
+import GridNowPlaying from '../components/MovieGrid';
 const Home = () => {
   return (
     <div>
@@ -10,7 +10,7 @@ const Home = () => {
         <main className="bg-black">
         <Hero />
         <ContentSection/>
-        <MovieGrid/>
+        <GridNowPlaying/>
       </main>
     </div>
 

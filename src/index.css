@@ -16,3 +16,9 @@
 .carousel-container::-webkit-scrollbar {
   display: none; /* Hide scrollbar for Chrome, Safari, and Opera */
 }
+.carousel-container * {
+  user-select: none; /* Отключение выделения текста */
+}
+
+
+

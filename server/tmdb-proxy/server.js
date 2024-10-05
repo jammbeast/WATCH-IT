@@ -25,6 +25,23 @@ app.get('/api/movies', async (req, res) => {
     }
 });
 
+app.get('/api/tvShows', async (req, res) => {
+    try {
+        const response = await get(`https://api.themoviedb.org/3/discover/tv`, {
+            params: {
+                api_key: process.env.TMDB_API_KEY,
+                'first_air_date.gte' : '2024-09-01',
+                'vote_average.gte' : 7,
+                language: 'en-US'
+            }   
+        });
+        res.json(response.data);
+    } catch(error){
+        console.error(error);
+        res.status(500).send('Error fetching data from TMDb');
+    }
+
+});
 app.get('/api/upcoming', async (req, res)=>
 {
     try{
