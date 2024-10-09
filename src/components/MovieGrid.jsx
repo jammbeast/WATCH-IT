@@ -44,16 +44,16 @@ const GridNowPlaying = () => {
   };
 
   return (
-    <div className="pt-8">
+    <div className="">
       {/* Категории переключения */}
-      <div className="container mx-auto grid gap-x-10 px-4 sm:grid-cols-12 max-h-10">
-        <div className="w-[267px] col-start-3 text-[#dbdcd0] text-4xl font-normal font-['Teko']">New and Notable </div>
+      <div className="pt-20 grid sm:grid-cols-2 lg:grid-cols-12 gap-x-10 mx-24 px-1">
+        <div className=" col-start-3 col-span-6 text-[#dbdcd0] text-9xl font-normal font-bebas-neue">New and Notable </div>
         
-        <button className={`col-start-3  text-start font-teko text-2xl ${category === 'tv' ? 'text-[#D69142]' : 'text-[#808080]'}`}
+        <button className={`col-start-3 col-span-2 text-start font-bebas-neue text-4xl ${category === 'tv' ? 'bg-[#D69142]' : 'bg-[#DBDCD0]'}`}
         onClick={()=>setCategory('tv')}
         >Tv Shows
            </button>
-        <button className={`col-start-4  text-start font-teko text-2xl ${category ==='movies' ? 'text-[#9B0C29]' : 'text-[#808080]'}`}
+        <button className={`col-start-4 text-start font-bebas-neue text-4xl ${category ==='movies' ? 'bg-[#9B0C29]' : 'bg-[#DBDCD0]'}`}
         onClick={()=>setCategory('movies')} 
         >Movies </button>
       </div>
@@ -70,7 +70,7 @@ const GridNowPlaying = () => {
   <MoviePoster
     key={movie.id}
     title={movie.title || movie.name} // У сериалов используется поле 'name'
-    genres={movie.genre_ids}
+    
     releaseDate={movie.release_date || movie.first_air_date} // У сериалов это 'first_air_date'
     posterUrl={`https://image.tmdb.org/t/p/w200${movie.poster_path}`}
   />
@@ -81,3 +81,10 @@ const GridNowPlaying = () => {
 };
 
 export default GridNowPlaying;
+
+
+// key={movie.id}
+//     title={movie.title || movie.name} // У сериалов используется поле 'name'
+//     genres={movie.genre_ids}
+//     releaseDate={movie.release_date || movie.first_air_date} // У сериалов это 'first_air_date'
+//     posterUrl={`https://image.tmdb.org/t/p/w200${movie.poster_path}`}

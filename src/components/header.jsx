@@ -1,30 +1,77 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
+import { gsap } from 'gsap';
 
-const Header = () => {
-    return (
-      <div class="sticky top-0 z-50 bg-black/30 backdrop-blur-lg text-white">
-      <div class="container mx-auto grid items-center gap-x-10 px-4 sm:grid-cols-12">
-        <div class="relative z-20 col-span-2 col-start-3 border-2 border-red-500 font-teko text-6xl ">Watch It?</div>
-        <nav class="col-span-4 col-start-7 ">
-          <ul class="flex items-center justify-between space-x-8 font-text-me-one text-2xl text-black ">
-            <li><Link to="/">Home</Link></li>
-            <li><Link to="/about">About</Link></li>
-            <li><Link to="/my-list">My List</Link></li>
-            <li class="flex items-center">
-              <Link to="/auth" class="rounded-full">
-                <button class="h-full w-10 sm:h-12 sm:w-12 lg:h-14 lg:w-14 flex items-center justify-center">
-                  <img class="h-full w-full rounded-full" src="https://placehold.jp/60x60.png" alt="something" />
-                </button>
+const Navbar = () => {
+  const location = useLocation();
+
+  useEffect(() => {
+    const tl = gsap.timeline();
+    
+    // Сбрасываем предыдущие анимации
+    if (location.pathname === '/') {
+      gsap.set(".letter", { opacity: 1, y: 0 });
+
+      // Анимация для букв в ссылках навигации, только на домашней странице
+      tl.from(".letter", {
+        opacity: 0,
+        y: -50,
+        duration: 0.3,
+        ease: "power3.out",
+        stagger: 0.1,
+      });
+
+      // Очистка анимации при размонтировании компонента
+      return () => tl.kill();
+    }
+  }, [location.pathname]); // Анимация запускается только при изменении пути
+
+  return (
+    <div className="sticky top-0 z-50">
+      <div className="grid sm:grid-cols-2 lg:grid-cols-12 gap-x-10 mx-24 px-1">
+        <nav className="col-start-3 col-span-8 bg-[#DBDCD0] header">
+          <ul className="mx-auto font-rubik-mono-one-regular text-3xl text-black flex justify-center space-x-10">
+            <li>
+              <Link to="/">
+                {[..."[HOME]"].map((char, index) => (
+                  <span key={index} className="letter inline-block">
+                    {char}
+                  </span>
+                ))}
               </Link>
             </li>
-            <li class="flex-grow">
-              <button class="w-full rounded-2xl bg-black font-teko text-3xl font-normal text-white hover:bg-gray-500 py-2 flex items-center justify-center">+Title?</button>
+            <li>
+              <Link to="/about">
+                {[..."[ABOUT]"].map((char, index) => (
+                  <span key={index} className="letter inline-block">
+                    {char}
+                  </span>
+                ))}
+              </Link>
+            </li>
+            <li>
+              <Link to="/my-list">
+                {[..."[MY LIST]"].map((char, index) => (
+                  <span key={index} className="letter inline-block">
+                    {char}
+                  </span>
+                ))}
+              </Link>
+            </li>
+            <li>
+              <Link to="/add">
+                {[..."[ADD]"].map((char, index) => (
+                  <span key={index} className="letter inline-block">
+                    {char}
+                  </span>
+                ))}
+              </Link>
             </li>
           </ul>
         </nav>
       </div>
     </div>
-    );
+  );
 };
-export default Header
+
+export default Navbar;

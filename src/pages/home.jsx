@@ -1,14 +1,16 @@
 import React from 'react';
-import Header from '../components/header';
-import Hero from '../components/hero';
-import ContentSection from '../components/content-section';
+import Navbar from '../components/header';
 import GridNowPlaying from '../components/MovieGrid';
+import Loop from '../components/looped';
+import ScrollTitle from '../components/Logo';
+import ContentSection from '../components/content-section';
 const Home = () => {
   return (
     <div>
-        <Header />
-        <main className="bg-black">
-        <Hero />
+        <main className="bg-black min-h-[3000px]">
+        <Loop/>
+        <ScrollTitle/>
+        <Navbar/>
         <ContentSection/>
         <GridNowPlaying/>
       </main>

@@ -1,62 +1,75 @@
-import React from 'react';
-
+import React, {useEffect} from 'react';
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 const ContentSection = () => {
-    return (
-      <div className="content-section mt-14 ">
-        <div className="container mx-auto grid gap-x-10 px-4 sm:grid-cols-12 sm:grid-rows-5">
-
-          {/* Первый блок: Your Ultimate Watchlist Awaits! */}
-          <div className="col-start-3 col-span-4 bg-[#d69142] row-span-2 rounded-[27px] px-6 py-6 flex flex-col justify-between">
-            <div className="text-[#dbdcd0] text-4xl font-['Teko'] mb-2 leading-tight">
-              Your Ultimate Watchlist Awaits!
-            </div>
-            <div className="text-black text-2xl font-['Teko'] mb-4 leading-tight">
-              Never lose track of a must-see movie or binge-worthy show again!
-            </div>
-            <div className="text-black text-2xl font-['Teko'] leading-tight">
-              Your personalized watchlist will be your guide through the vast world of movies and TV shows. Start building yours today!
-            </div>
+  
+  return (
+    <div>
+      {/*  Watchlist */}
+      <div className="pt-20 grid sm:grid-cols-2 lg:grid-cols-12 gap-x-10 mx-24 px-1">
+        <div className="col-start-2 col-span-4 bg-[#9B0C29] text-center row-span-6 pb-2 shadow-[10px_-10px_0_0_#DBDCD0]">
+          <div className="text-[#DBDCD0] inline-block font-ibm-plex-mono-regular px-6 bg-black text-3xl mt-2">
+            Your Ultimate
+            <br /> Watchlist Awaits!
           </div>
-
-          {/* Второй блок: Rate Your Viewing Experience! */}
-          <div className="col-start-3 col-span-4 bg-[#9B0C29] row-span-2 row-start-4 rounded-[27px] px-6 py-6 flex flex-col">
-            <div className="text-[#dbdcd0] text-4xl leading-tight font-['Teko'] mb-2">
-              Rate Your Viewing Experience!
-            </div>
-            <div className="text-black text-2xl max-w-full leading-relaxed font-['Teko']">
-              Loved it? Hated it? Share your thoughts with the world using our easy rating system. Start rating now and join the conversation!
-            </div>
+          <div className="text-center font-ibm-plex-mono-regular text-3xl pt-4">
+            Never lose track of a must-see movie or binge-worthy show again!
           </div>
-
-          {/* Третий блок: Lights, Camera, Reviews! */}
-          <div className="col-start-7 col-span-4 bg-[#808080] row-span-5 rounded-[27px] flex flex-col px-6 py-6">
-            <div className="text-[#dbdcd0] text-4xl font-['Teko'] mb-4 leading-tight">
-              Lights, Camera, Reviews!
-            </div>
-            <div className="text-black text-2xl font-['Teko'] mb-4 leading-relaxed max-w-full">
-              Ready to share your cinematic wisdom with the world? Dive into the captivating world of film criticism and let your voice be heard!
-            </div>
-            <div className="text-[#dbdcd0] text-2xl font-['Teko'] mb-4 leading-relaxed max-w-full">
-              Was the acting Oscar-worthy or cringe-inducing? Did the plot keep you on the edge of your seat or leave you wanting more? Tell us what you think!
-            </div>
-            <div className="text-black text-2xl font-['Teko'] leading-relaxed max-w-full">
-              Your reviews can help others discover hidden gems, avoid cinematic misfires, and spark lively discussions about the art of filmmaking. So, grab your popcorn, settle into your seat, and let the words flow!
-            </div>
+          <div className="text-center font-ibm-plex-mono-regular text-3xl pt-8">
+            Your personalized watchlist will be your guide through the vast world of movies and TV shows. Start building yours today!
           </div>
+        </div>
 
-          {/* Четвертый блок: Follow Us On GitHub */}
-          <div className="bg-[#1E1E1E] rounded-[27px] flex flex-col items-center px-6 py-4 mt-6 mb-4 col-start-3 col-span-8"> 
-            <div className="text-[#dbdcd0] text-3xl font-normal font-['Teko'] text-center">
-              FOLLOW US ON GITHUB
-            </div>
-            <div className="text-[#dbdcd0] text-2xl font-normal font-['Teko'] text-center">
-              Keep up with updates and our plans
-            </div>
+        {/* Rating */}
+        <div className="col-start-8 col-span-4 row-span-4 bg-[#D69142] pb-2 z-10 shadow-[-10px_10px_0_0_#DBDCD0]">
+          <div className="font-ibm-plex-mono-regular text-[#DBDCD0] text-3xl mt-2 inline-block px-4 bg-black">
+            Rate Your Viewing <br /> Experience!
           </div>
-
+          <div className="text-center font-ibm-plex-mono-regular text-3xl pt-8">
+            Share your personal take on every movie and TV show you watch with our simple and intuitive rating system.
+          </div>
         </div>
       </div>
-    );
+
+      {/*  Reviews */}
+      <div className="pt-20 grid sm:grid-cols-2 lg:grid-cols-12 gap-x-10 mx-24 px-1">
+        <div className="col-start-2 col-span-10 relative bg-[#808080] mt-10 font-ibm-plex-mono-regular p-6 min-h-[400px]">
+          {/**/}
+          <div className="text-left pl-4 inline-block">
+            <div className="text-[#DBDCD0] text-5xl">LIGHTS</div>
+            <div className="text-[#DBDCD0] text-6xl">CAMERA</div>
+            <div className="font-ibm-plex-mono-regular text-3xl pt-4 max-w-3xl">
+              Share your thoughts on performances and plot twists. Whether it's a hidden GEM or a cinematic miss, your reviews can guide fellow viewers and spark conversations. Grab your popcorn and start reviewing!
+            </div>
+          </div>
+
+          {/* Блок REVIEWS! */}
+          <div className="relative mt-10">
+            <div className="flex justify-between items-center">
+              {/* Первый  REVIEWS! */}
+              <div className="relative text-7xl flex items-center ">
+                REVIEWS!
+                <div className="absolute left-[40px] top-[10px] bg-black w-[88px] h-[64px] z-0"></div>
+                <div className="absolute left-[40px] top-0 text-[#DBDCD0] z-10">EV</div>
+              </div>
+
+              {/* второй REVIEWS! */}
+              <div className="relative text-7xl flex items-center">
+                
+                REVIEW
+                <div className="relative text-[#DBDCD0] z-10">S!</div>
+                <div className="absolute left-[-86px] top-1 bg-black w-[88px] h-[64px] z-0"></div>
+                <div className="absolute left-[300px] top-1 bg-black w-[88px] h-[64px] z-0"></div>
+              </div>
+
+              {/* Третий REVIEWS! */}
+              <div className="text-7xl text-[#DBDCD0]">REVIEWS!</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
 };
 
 export default ContentSection;

@@ -1,5 +1,5 @@
 /** @type {import('tailwindcss').Config} */
-module.exports = {
+export default {
   content: [
     "./src/**/*.{js,jsx,ts,tsx}",
   ],
@@ -7,8 +7,22 @@ module.exports = {
       extend: {
         fontFamily: {
           'teko': ['Teko', 'sans-serif'],
-          'text-me-one': ['Text Me One', 'sans-serif']
-        }
+          'text-me-one': ['Text Me One', 'sans-serif'],
+          'roboto-mono': ['"Roboto Mono"', 'monospace'],
+          'bebas-neue' : ['Bebas Neue', 'sans-serif'],
+          'rubik-mono-one-regular': ['Rubik Mono One', 'monospace'],
+          'anonymous-pro-regular' : ['Anonymous Pro', 'monospace'],
+          'ibm-plex-mono-regular' : ['IBM Plex Mono', 'monospace']
+        },
+        keyframes: {
+          scroll: {
+            '0%': { transform: 'translateX(0%)' },
+            '100%': { transform: 'translateX(-100%)' },
+          },
+        },
+        animation: {
+          scroll: 'scroll 25s linear infinite',
+        },
       },
     },
   plugins: [],
