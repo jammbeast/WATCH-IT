@@ -46,16 +46,16 @@ const GridNowPlaying = () => {
   return (
     <div className="">
       {/* Категории переключения */}
-      <div className="pt-20 grid sm:grid-cols-2 lg:grid-cols-12 gap-x-10 mx-24 px-1">
-        <div className=" col-start-3 col-span-6 text-[#dbdcd0] text-9xl font-normal font-bebas-neue">New and Notable </div>
+      <div className="pt-20 grid sm:grid-cols-2 lg:grid-cols-11 gap-x-10 mx-24 px-1">
+        <div className=" col-start-3 col-span-6 text-[#dbdcd0] text-9xl font-bebas-neue font-bold">Популярные Новинки </div>
         
-        <button className={`col-start-3 col-span-2 text-start font-bebas-neue text-4xl ${category === 'tv' ? 'bg-[#D69142]' : 'bg-[#DBDCD0]'}`}
+        <button className={`col-start-3 col-span-2 text-start font-bebas-neue font-bold text-4xl ${category === 'tv' ? 'bg-[#D69142]' : 'bg-[#DBDCD0]'}`}
         onClick={()=>setCategory('tv')}
-        >Tv Shows
+        >Сериалы
            </button>
-        <button className={`col-start-4 text-start font-bebas-neue text-4xl ${category ==='movies' ? 'bg-[#9B0C29]' : 'bg-[#DBDCD0]'}`}
+        <button className={`col-start-4 text-start font-bebas-neue font-bold text-4xl ${category ==='movies' ? 'bg-[#9B0C29]' : 'bg-[#DBDCD0]'}`}
         onClick={()=>setCategory('movies')} 
-        >Movies </button>
+        >Фильмы </button>
       </div>
       <div
         className="pl-11 mx-auto flex w-full max-w-[100%] space-x-20 overflow-x-auto bg-black px-4 py-12 carousel-container"

@@ -18,13 +18,13 @@ const ScrollTitle = () => {
     }, []);  
 
     // Рассчитываем ширину полоски 
-    const lineWidth = Math.max(663 - scrollPosition , 0);
-    const lineWidthSmall = Math.max(126 - scrollPosition * 0.2, 0); // Уменьшаем ширину
+    const lineWidth = Math.max(689 - scrollPosition , 0);
+    const lineWidthSmall = Math.max(110 - scrollPosition * 0.2, 0); // Уменьшаем ширину
 
     return (
         <div className="grid sm:grid-cols-2 lg:grid-cols-12 gap-x-10 mx-24 px-1 mt-6  ">
             
-            <h1 className="text-[328px] col-start-2 col-span-6 mx-20 leading-none font-bebas-neue text-[#DBDCD0] relative">
+            <h1 className="text-[328px] col-start-2 col-span-6 mx-20 leading-none font-bebas-neue font-bold text-[#DBDCD0] relative">
                 WATCH
                 {/* Полоска слева */}
                 <span 

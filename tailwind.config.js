@@ -12,7 +12,9 @@ export default {
           'bebas-neue' : ['Bebas Neue', 'sans-serif'],
           'rubik-mono-one-regular': ['Rubik Mono One', 'monospace'],
           'anonymous-pro-regular' : ['Anonymous Pro', 'monospace'],
-          'ibm-plex-mono-regular' : ['IBM Plex Mono', 'monospace']
+          'ibm-plex-mono-regular' : ['IBM Plex Mono', 'monospace'],
+          'pt-mono-regular' : ['PT Mono', 'monospace'],
+          
         },
         keyframes: {
           scroll: {

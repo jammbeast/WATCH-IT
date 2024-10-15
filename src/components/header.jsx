@@ -33,7 +33,7 @@ const Navbar = () => {
           <ul className="mx-auto font-rubik-mono-one-regular text-3xl text-black flex justify-center space-x-10">
             <li>
               <Link to="/">
-                {[..."[HOME]"].map((char, index) => (
+                {[..."[ДОМОЙ]"].map((char, index) => (
                   <span key={index} className="letter inline-block">
                     {char}
                   </span>
@@ -41,8 +41,8 @@ const Navbar = () => {
               </Link>
             </li>
             <li>
-              <Link to="/about">
-                {[..."[ABOUT]"].map((char, index) => (
+              <Link to="/auth">
+                {[..."[АККАУНТ]"].map((char, index) => (
                   <span key={index} className="letter inline-block">
                     {char}
                   </span>
@@ -51,7 +51,7 @@ const Navbar = () => {
             </li>
             <li>
               <Link to="/my-list">
-                {[..."[MY LIST]"].map((char, index) => (
+                {[..."[МОЙ/ЛИСТ]"].map((char, index) => (
                   <span key={index} className="letter inline-block">
                     {char}
                   </span>
@@ -60,7 +60,7 @@ const Navbar = () => {
             </li>
             <li>
               <Link to="/add">
-                {[..."[ADD]"].map((char, index) => (
+                {[..."[ДОБАВИТЬ]"].map((char, index) => (
                   <span key={index} className="letter inline-block">
                     {char}
                   </span>
