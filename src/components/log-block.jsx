@@ -1,6 +1,13 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const LogBlock = () => {
+    const navigate = useNavigate(); // Для редиректа
+
+    const handleEmailRedirect = () => {
+        navigate('/email'); // Редирект на страницу с авторизацией по email
+    };
+
     return (
         <div className="col-start-3 col-span-8 bg-[#DBDCD0] h-[70%] mt-36">
             <div className="text-black font-rubik-mono-one-regular text-4xl text-center py-4">
@@ -13,7 +20,10 @@ const LogBlock = () => {
                 <div className="font-pt-mono-regular text-[#DBDCD0] text-4xl mb-6">
                     /Продолжить с Github
                 </div>
-                <div className="font-pt-mono-regular text-[#DBDCD0] text-4xl mb-6">
+                <div
+                    className="font-pt-mono-regular text-[#DBDCD0] text-4xl mb-6 cursor-pointer"
+                    onClick={handleEmailRedirect} // При клике редиректим на страницу с email
+                >
                     /Продолжить с Email
                 </div>
                 <div className="font-pt-mono-regular text-[#DBDCD0] text-xs text-center mt-6">

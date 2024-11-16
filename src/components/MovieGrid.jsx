@@ -68,9 +68,9 @@ const GridNowPlaying = () => {
       >
         {movies.map((movie) => (
   <MoviePoster
-    key={movie.id}
+    id={movie.id}
     title={movie.title || movie.name} // У сериалов используется поле 'name'
-    
+    genre_ids={movie.genre_ids}
     releaseDate={movie.release_date || movie.first_air_date} // У сериалов это 'first_air_date'
     posterUrl={`https://image.tmdb.org/t/p/w200${movie.poster_path}`}
   />
