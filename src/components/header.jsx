@@ -29,9 +29,9 @@ const Navbar = () => {
 
   return (
     <div className="sticky top-0 z-50">
-      <div className="grid sm:grid-cols-2 lg:grid-cols-12 gap-x-10 mx-24 px-1">
+      <div className="grid sm:grid-cols-2 lg:grid-cols-12 gap-x-10 mx-24 px-1 ">
         <nav className="col-start-3 col-span-8 bg-[#DBDCD0] header">
-          <ul className="mx-auto font-rubik-mono-one-regular text-3xl text-black flex justify-center space-x-10">
+          <ul className="mx-auto font-rubik-mono-one-regular text-3xl text-black flex justify-center md:space-x-5 ">
             <li>
               <Link to="/">
                 {[..."[ДОМОЙ]"].map((char, index) => (
