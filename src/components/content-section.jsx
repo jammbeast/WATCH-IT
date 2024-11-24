@@ -1,12 +1,11 @@
 import React, {useEffect} from 'react';
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+
 const ContentSection = () => {
   
   return (
     <div>
       {/*  Watchlist */}
-      <div className="pt-20 grid sm:grid-cols-2 lg:grid-cols-12 gap-x-10 mx-24 px-1">
+      <div className="pt-3 mx-24 px-1">
         <div className="col-start-2 col-span-4 bg-[#9B0C29] text-center row-span-6 pb-2 shadow-[10px_-10px_0_0_#DBDCD0]">
           <div className="text-[#DBDCD0] inline-block font-pt-mono-regular px-6 bg-black text-3xl mt-2">
           Ваш персональный 
@@ -32,7 +31,7 @@ const ContentSection = () => {
       </div>
 
       {/*  Reviews */}
-      <div className="pt-20 grid sm:grid-cols-2 lg:grid-cols-12 gap-x-10 mx-24 px-1">
+      <div className="pt-20 mx-24 px-1">
         <div className="col-start-2 col-span-10 relative bg-[#808080] mt-10 font-pt-mono-regular p-6 min-h-[400px]">
           {/**/}
           <div className="text-left pl-4 inline-block">

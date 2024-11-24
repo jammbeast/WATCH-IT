@@ -1,97 +1,95 @@
-import React, { useState, useEffect } from 'react';
+import { useEffect } from "react";
+import { gsap } from "gsap";
 
-const ScrollTitle = () => {
-    const [scrollPosition, setScrollPosition] = useState(0);
+const HeroSection = () => {
+  useEffect(() => {
+    const tl = gsap.timeline();
 
-    
-    useEffect(() => {
-        const handleScroll = () => {
-            const scrollY = window.scrollY;
-            setScrollPosition(scrollY);
-        };
+    // Эффект "хайпового" появления W и I
+    tl.fromTo(
+      ".letter1",
+      { opacity: 0, y: -200, scale: 2 },
+      { color: "#DBDCD0", opacity: 1, y: 0, scale: 1, duration: 0.6, ease: "expo.inOut" }
+    )
+      .fromTo(
+        ".letter6",
+        { opacity: 0, y: 200, scale: 2 },
+        { opacity: 1, y: 0, scale: 1, duration: 0.6, ease: "expo.inOut" },
+        "-=0.4"
+      )
+      .to(
+        [".letter1", ".letter6"],
+        {
+          color: "#D69142",
+          repeat: 4,
+          yoyo: true,
+          duration: 0.2,
+          ease: "power1.inOut",
+        },
+        "+=0.5" // Задержка перед началом мерцания
+      )
+      .to(
+        ".letter1",
+        { color: "#DBDCD0", x: "-300", duration: 0.6, ease: "back.in(2)" },
+        "+=0.2"
+      )
+      .to(
+        ".letter6",
+        { color: "#DBDCD0", x: "200",  duration: 0.6, ease: "back.in(2)" },
+        "-=0.5"
+      );
 
-        // Добавляем обработчик события scroll
-        window.addEventListener('scroll', handleScroll);
-        return () => {
-            window.removeEventListener('scroll', handleScroll);
-        };
-    }, []);  
+    // "Хайп"
+    tl.fromTo(
+      ".letterT1",
+      { opacity: 0, scale: 0.5, rotate: -45, y: -100 },
+      { opacity: 1, scale: 1, rotate: 0, y: 0, duration: 0.5, ease: "expo.out" }
+    )
+      .fromTo(
+        ".letterA",
+        { opacity: 0, scale: 0.5, rotate: 45, x: 100 },
+        { opacity: 1, scale: 1, rotate: 0, x: 0, duration: 0.5, ease: "expo.out" },
+        "-=0.4"
+      )
+      .fromTo(
+        ".letterT",
+        { opacity: 0, y: 200, scale: 1.5 },
+        { opacity: 1, y: 0, scale: 1, duration: 0.5, ease: "expo.out" },
+        "-=0.4"
+      )
+      .fromTo(
+        ".letterC",
+        { opacity: 0, y: -200, scale: 1.5, rotate: -15 },
+        { opacity: 1, y: 0, scale: 1, rotate: 0, duration: 0.5, ease: "expo.out" },
+        "-=0.4"
+      )
+      .fromTo(
+        ".letterH",
+        { opacity: 0, scale: 0.5, rotate: 90, x: -100 },
+        { opacity: 1, scale: 1, rotate: 0, x: 0, duration: 0.5, ease: "expo.out" },
+        "-=0.4"
+      );
+  }, []);
 
-    // Рассчитываем ширину полоски 
-    const lineWidth = Math.max(689 - scrollPosition , 0);
-    const lineWidthSmall = Math.max(110 - scrollPosition * 0.2, 0); // Уменьшаем ширину
+  return (
+    <section className="hero-section justify-center items-center bg-black text-white relative">
+      <h1 className="text-[256px] font-bold flex justify-center items-center relative">
+        <span className="letter1 font-bebas-neue">W</span>
+      </h1>
 
-    return (
-        <div className="grid sm:grid-cols-2 lg:grid-cols-12 gap-x-10 mx-24 px-1 mt-6  ">
-            
-            <h1 className="text-[328px] col-start-2 col-span-6 mx-20 leading-none font-bebas-neue font-bold text-[#DBDCD0] relative">
-                WATCH
-                {/* Полоска слева */}
-                <span 
-                  className="absolute left-0 bottom-[76px] transform bg-black h-[3px] transition-all duration-75"
-                  style={{ width: `${lineWidth}px` }}  
-                ></span>
-                <span 
-                  className="absolute left-0 bottom-[88px] transform bg-black h-[4px] transition-all duration-75"
-                  style={{ width: `${lineWidth}px` }}  
-                ></span>
-                <span 
-                  className="absolute left-0 bottom-[98px] transform bg-black h-[5px] transition-all duration-75"
-                  style={{ width: `${lineWidth}px` }}  
-                ></span>
-                <span 
-                  className="absolute left-0 bottom-[108px] transform bg-black h-[6px] transition-all duration-75"
-                  style={{ width: `${lineWidth}px` }}  
-                ></span>
-                <span 
-                  className="absolute left-0 bottom-[142px] transform bg-black h-[7px] transition-all duration-75"
-                  style={{ width: `${lineWidth}px` }}  
-                ></span>
-                <span 
-                  className="absolute left-0 bottom-[151px] transform bg-black h-[8px] transition-all duration-75"
-                  style={{ width: `${lineWidth}px` }}  
-                ></span>
-                <span 
-                  className="absolute left-0 bottom-[164px] transform bg-black h-[9px] transition-all duration-75"
-                  style={{ width: `${lineWidth}px` }}  
-                ></span>
+      <h1 className="text-[256px] font-bold flex justify-center items-center relative">
+        <h1 className="letterT1 absolute text-[#DBDCD0] font-bebas-neue top-[10%] left-80">T</h1>
+        <h1 className="letterA absolute text-[#DBDCD0] font-bebas-neue bottom-[10%] right-52">A</h1>
+        <h1 className="letterT absolute text-[#DBDCD0] font-bebas-neue bottom-[10%] right-32">T</h1>
+        <h1 className="letterC absolute text-[#DBDCD0] font-bebas-neue bottom-[10%]">C</h1>
+        <h1 className="letterH absolute text-[#DBDCD0] font-bebas-neue bottom-[10%] left-32">H</h1>
+      </h1>
 
-            </h1>
-            <h1 className="text-[288px] col-start-7  col-span-2 mx-12 leading-none font-bebas-neue text-[#DBDCD0] relative">
-                IT
-                {/* Полоска слева */}
-                <span 
-                  className="absolute left-0 bottom-[66px] transform bg-black h-[3px] transition-all duration-75"
-                  style={{ width: `${lineWidthSmall}px` }}  
-                ></span>
-                <span 
-                  className="absolute left-0 bottom-[78px] transform bg-black h-[4px] transition-all duration-75"
-                  style={{ width: `${lineWidthSmall}px` }}  
-                ></span>
-                <span 
-                  className="absolute left-0 bottom-[88px] transform bg-black h-[5px] transition-all duration-75"
-                  style={{ width: `${lineWidthSmall}px` }}  
-                ></span>
-                <span 
-                  className="absolute left-0 bottom-[98px] transform bg-black h-[6px] transition-all duration-75"
-                  style={{ width: `${lineWidthSmall}px` }}  
-                ></span>
-                <span 
-                  className="absolute left-0 bottom-[132px] transform bg-black h-[7px] transition-all duration-75"
-                  style={{ width: `${lineWidthSmall}px` }}  
-                ></span>
-                <span 
-                  className="absolute left-0 bottom-[141px] transform bg-black h-[8px] transition-all duration-75"
-                  style={{ width: `${lineWidthSmall}px` }}  
-                ></span>
-                <span 
-                  className="absolute left-0 bottom-[154px] transform bg-black h-[9px] transition-all duration-75"
-                  style={{ width: `${lineWidthSmall}px` }}  
-                ></span>
-
-            </h1>
-        </div>
-    );
+      <h1 className="text-[256px] font-bold flex justify-center items-center relative">
+        <span className="letter6 font-bebas-neue">I</span>
+      </h1>
+    </section>
+  );
 };
 
-export default ScrollTitle;
+export default HeroSection;

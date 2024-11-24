@@ -28,50 +28,50 @@ const Navbar = () => {
   };
 
   return (
-    <div className="sticky top-0 z-50">
-      <div className="grid sm:grid-cols-2 lg:grid-cols-12 gap-x-10 mx-24 px-1 ">
-        <nav className="col-start-3 col-span-8 bg-[#DBDCD0] header">
-          <ul className="mx-auto font-rubik-mono-one-regular text-3xl text-black flex justify-center md:space-x-5 ">
-            <li>
-              <Link to="/">
-                {[..."[ДОМОЙ]"].map((char, index) => (
-                  <span key={index} className="letter inline-block">
-                    {char}
-                  </span>
-                ))}
-              </Link>
-            </li>
-            <li>
-              <Link to="/auth">
-                {[..."[АККАУНТ]"].map((char, index) => (
-                  <span key={index} className="letter inline-block">
-                    {char}
-                  </span>
-                ))}
-              </Link>
-            </li>
-            <li>
-              <Link to="/my-list">
-                {[..."[МОЙ/ЛИСТ]"].map((char, index) => (
-                  <span key={index} className="letter inline-block">
-                    {char}
-                  </span>
-                ))}
-              </Link>
-            </li>
-            <li>
-              {/* При клике по "Добавить" открывается модальное окно */}
-              <button onClick={toggleModal} className="letter inline-block">
-                {[..."[ДОБАВИТЬ]"].map((char, index) => (
-                  <span key={index} className="letter">
-                    {char}
-                  </span>
-                ))}
-              </button>
-            </li>
-          </ul>
-        </nav>
-      </div>
+      <div className="sticky top-0 z-50">
+        <div className="flex items-center justify-between px-6 py-2 max-w-screen-xl mx-auto">
+          <nav className="bg-[#DBDCD0] header font-bebas-neue font-bold text-3xl text-black w-screen">
+            <ul className="flex space-x-8">
+              <li>
+                <Link to="/">
+                  {[..."[ДОМОЙ]"].map((char, index) => (
+                    <span key={index} className="letter inline-block">
+                      {char}
+                    </span>
+                  ))}
+                </Link>
+              </li>
+              <li>
+                <Link to="/auth">
+                  {[..."[АККАУНТ]"].map((char, index) => (
+                    <span key={index} className="letter inline-block">
+                      {char}
+                    </span>
+                  ))}
+                </Link>
+              </li>
+              <li>
+                <Link to="/my-list">
+                  {[..."[МОЙ/ЛИСТ]"].map((char, index) => (
+                    <span key={index} className="letter inline-block">
+                      {char}
+                    </span>
+                  ))}
+                </Link>
+              </li>
+              <li>
+                {/* При клике по "Добавить" открывается модальное окно */}
+                <button onClick={toggleModal} className="letter inline-block">
+                  {[..."[ДОБАВИТЬ]"].map((char, index) => (
+                    <span key={index} className="letter">
+                      {char}
+                    </span>
+                  ))}
+                </button>
+              </li>
+            </ul>
+          </nav>
+        </div>
 
       {/* Модальное окно для поиска */}
       {isModalOpen && <SearchModal onClose={toggleModal} />}

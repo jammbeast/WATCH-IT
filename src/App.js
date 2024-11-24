@@ -4,8 +4,9 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Home from './pages/home';
 import About from './pages/terms-of-service';
 import Auth from './pages/auth';
-import EmailAuth from './pages/emailAuth'; // Страница для почты и пароля
-import EmailConfirm from './pages/emailConfirm'; // Страница подтверждения
+import EmailAuth from './pages/emailAuth';
+import EmailConfirm from './pages/emailConfirm';
+import MoviePage from './pages/moviePage'; // Импорт компонента страницы фильма
 import './index.css'; 
 
 function App() {
@@ -15,8 +16,9 @@ function App() {
         <Route exact path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/auth" element={<Auth />} />
-        <Route path="/email" element={<EmailAuth />} /> {/* Страница авторизации с email и паролем */}
-        <Route path="/email/confirm" element={<EmailConfirm />} /> {/* Страница подтверждения почты */}
+        <Route path="/email" element={<EmailAuth />} />
+        <Route path="/email/confirm" element={<EmailConfirm />} />
+        <Route path="/movie/:id" element={<MoviePage />} /> 
       </Routes>
     </Router>
   );
