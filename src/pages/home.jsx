@@ -3,12 +3,13 @@ import Navbar from '../components/header';
 import GridNowPlaying from '../components/MovieGrid';
 import Loop from '../components/looped';
 import ScrollTitle from '../components/Logo';
-import ContentSection from '../components/content-section';
+import ContentSection from '../components/contentSection.jsx';
+import AboutWatchIt from '../components/aboutWatchIt.jsx';
 import { gsap } from 'gsap';
 const Home = () => {
   useEffect(() => {
     const tl = gsap.timeline();
-    document.body.style.overflow = "hidden"; // Запрещаем скролл страницы
+    document.body.style.overflow = "auto";
     tl.fromTo(
       ".scroll-title",
       { opacity: 0, scale: 0.8, y: 50 },
@@ -25,38 +26,33 @@ const Home = () => {
         ".navbar",
         { opacity: 0, y: 100 },
         { opacity: 1, y: 0, duration: 0.8, ease: "elastic.out(1, 0.5)", onComplete: () => document.body.style.overflow = "auto" },
-        "-=0.6" // Начинаем анимацию .navbar сразу после .loop с небольшой перекрывающейся задержкой
+        "-=0.6" 
       );
   }, []);
 
   
   return (
-    <main className="bg-black min-h-screen flex flex-col overflow-x-hidden">
-      {/* Верхний блок: Логотип и Навбар */}
-      <header className="bg-black h-screen flex flex-col justify-between items-center">
-        <div className = "navbar">
+    <main className="bg-black min-h-screen flex flex-col">
+   
+    <div className="navbar sticky top-0 z-10 ">
       <Navbar />
-      </div >
-      <div className = "scroll-title">
-        <ScrollTitle />
-        </div>
-        <div className = "loop"><Loop /></div>
-      </header>
-      
-      <div className="flex-1 grid grid-cols-1 lg:grid-cols-2 gap-x-6">
-        {/* Левая колонка */}
-        <div>
-        </div>
-        <div className ="col-span-2">
-          <ContentSection />
-        </div>
-        
-        {/* Правая колонка */}
-        <div className = "col-span-2">
-          <GridNowPlaying />
-        </div>
-      </div>
-    </main>
+    </div>
+  
+  
+    <header className="bg-black flex flex-col justify-between min-h-screen relative"> 
+  <div className="scroll-title flex items-center flex-col flex-grow">
+    <ScrollTitle />
+  </div>
+
+  <div className="loop sticky bottom-0 left-0 w-full bg-gray-200"> 
+    <Loop />
+  </div>
+</header>
+  <div className = "mt-20">
+    <AboutWatchIt />
+    </div>
+   <GridNowPlaying/>
+  </main>
   );
 };
 

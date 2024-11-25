@@ -1,5 +1,5 @@
 import React from 'react';
-import LogoSmall from '../components/logo-small';
+import LogoSmall from '../components/logoSmall';
 import LogBlock from '../components/log-block.jsx';
 
 const Auth = () => {

@@ -72,7 +72,7 @@ const HeroSection = () => {
   }, []);
 
   return (
-    <section className="hero-section justify-center items-center bg-black text-white relative">
+    <section className="hero-section justify-center items-center text-white relative">
       <h1 className="text-[256px] font-bold flex justify-center items-center relative">
         <span className="letter1 font-bebas-neue">W</span>
       </h1>
