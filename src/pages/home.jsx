@@ -8,6 +8,8 @@ import AboutWatchIt from '../components/aboutWatchIt.jsx';
 import { gsap } from 'gsap';
 const Home = () => {
   useEffect(() => {
+    const hasPlayed = localStorage.getItem("homeAnimationPlayed");
+    if (!hasPlayed){
     const tl = gsap.timeline();
     document.body.style.overflow = "auto";
     tl.fromTo(
@@ -28,6 +30,8 @@ const Home = () => {
         { opacity: 1, y: 0, duration: 0.8, ease: "elastic.out(1, 0.5)", onComplete: () => document.body.style.overflow = "auto" },
         "-=0.6" 
       );
+    }
+    localStorage.setItem("homeAnimationPlayed", true);
   }, []);
 
   

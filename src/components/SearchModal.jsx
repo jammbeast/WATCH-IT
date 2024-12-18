@@ -35,8 +35,8 @@ function SearchModal({ onClose }) {
     }
     const filteredResults = results.filter(item => item.genre_ids && item.genre_ids.length > 0);
     return (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center backdrop-blur-sm z-50">
-            <div className="bg-black text-white p-6 stroke-white  w-[45%] max-w-[116vw] min-h-[80vh] max-h-[80vh] relative overflow-y-auto" style={{boxShadow: '0 0 0 3px #DBDCD0'}}>
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center backdrop-blur-sm z-100">
+            <div className="bg-black text-white p-6 stroke-white w-full max-w-[50%] min-h-[80vh] max-h-[80vh] relative overflow-y-auto" style={{boxShadow: '0 0 0 3px #DBDCD0'}}>
             <div className="flex items-center justify-between">
                 
                 <h2 className="text-4xl font-bebas-neue  text-[#DBDCD0]">Поиск</h2>

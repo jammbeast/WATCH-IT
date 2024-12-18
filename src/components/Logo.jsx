@@ -3,6 +3,10 @@ import { gsap } from "gsap";
 
 const HeroSection = () => {
   useEffect(() => {
+
+    const hasPlayed = localStorage.getItem("logoAnimationPlayed");
+    
+
     const tl = gsap.timeline();
 
     // Эффект "хайпового" появления W и I
@@ -69,10 +73,12 @@ const HeroSection = () => {
         { opacity: 1, scale: 1, rotate: 0, x: 0, duration: 0.5, ease: "expo.out" },
         "-=0.4"
       );
+      localStorage.setItem("logoAnimationPlayed", "true");
+    
   }, []);
 
   return (
-    <section className="hero-section justify-center items-center text-white relative">
+    <section className="hero-section justify-center items-center text-[#DBDCD0] relative">
       <h1 className="text-[256px] font-bold flex justify-center items-center relative">
         <span className="letter1 font-bebas-neue">W</span>
       </h1>

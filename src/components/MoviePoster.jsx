@@ -10,7 +10,7 @@ const MoviePoster = ({ id, title, genre_ids, releaseDate, posterUrl }) => {
   return (
     <div className="shrink-0 relative flex flex-col rounded-[10px] p-4 w-48" style={{ userSelect: 'none' }}>
       <img 
-        className="relative z-10 h-auto transition-transform duration-200 transform hover:scale-105" 
+        className="relative h-auto transition-transform duration-200 transform hover:scale-105" 
         src={posterUrl} 
         alt={title} 
       />
